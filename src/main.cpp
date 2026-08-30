@@ -7,6 +7,7 @@
 using namespace geode::prelude;
 
 int dailyStars = Mod::get()->getSavedValue<int>("dailyStars");
+int dailyMoons = Mod::get()->getSavedValue<int>("dailyMoons");
 
 std::string getCurrentDate() {
 	auto currentTime = time(0);
@@ -25,7 +26,9 @@ void checkAndResetDailyStars() {
 
     if (lastDate != currentDate) {
         dailyStars = 0;
+		dailyMoons = 0;
         Mod::get()->setSavedValue<int>("dailyStars", 0);
+		Mod::get()->setSavedValue<int>("dailyMoons", 0);
         Mod::get()->setSavedValue<std::string>("lastDailyStarsReset", currentDate);
     }
 }
@@ -41,9 +44,11 @@ class $modify(GJGarageLayer) {
 			auto statMenu = this->getChildByID("capeling.garage-stats-menu/stats-menu");
 
 			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyStars, 0.8f);
+			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyMoons, 0.8f);
 
 			if (statMenu) {
 				statMenu->addChild(myStatItem);
+				statMenu->addChild(myStatItem2);
 				statMenu->updateLayout();
 			}
 
@@ -61,7 +66,9 @@ class $modify(EndLevelLayer) {
 		EndLevelLayer::showLayer(toggle);
 		checkAndResetDailyStars();
 		dailyStars += m_stars;  
+		dailyMoons += m_moons;  
 		Mod::get()->setSavedValue<int>("dailyStars", dailyStars);
+		Mod::get()->setSavedValue<int>("dailyMoons", dailyMoons);
 	}		
 };
 
@@ -75,19 +82,34 @@ class $modify(LevelBrowserLayer) {
 
 			auto menu = this->getChildByID("page-menu");
 			auto oldStat = menu->getChildByID("daily-stars");
-	
+			auto oldStatMoon = menu->getChildByID("daily-moons");
+
 			if (auto oldStat = menu->getChildByID("daily-stars")) {
 				oldStat->removeFromParent();
 			}
+
+			if (auto oldStatMoon = menu->getChildByID("daily-moons")) {
+				oldStatMoon->removeFromParent();
+			}
+
 			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyStars, 0.9f);
+			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyMoons, 0.9f);
 
 			myStatItem->setPosition({ -13, 97 });
+			myStatItem2->setPosition({ -13, 105 });
 
 			myStatItem->setID("daily-stars");
+			myStatItem2->setID("daily-moons");
+
 			if (menu->getChildByID("folder-button") && Loader::get()->isModLoaded("cvolton.betterinfo")) {
 				myStatItem->setPosition({ 21, 62 });
 			}
 			menu->addChild(myStatItem);
+
+			if (menu->getChildByID("folder-button") && Loader::get()->isModLoaded("cvolton.betterinfo")) {
+				myStatItem2->setPosition({ 21, 78 });
+			}
+			menu->addChild(myStatItem2);
 			
 			if (Mod::get()->getSettingValue<bool>("enable-particles")) {
 				CCParticleSystemQuad* starParticles = GameToolbox::particleFromString("30a-1a2a0a8a180a180a0a0a25a50a0a5a-8a0a0a10a5a0a0a0a1a0a1a0a0.25a0a1a0.05a0a0a0a0a1a0a1a0a1a0a0a0a0a0a0.35a0a0a0a20a0a0a0a1a2a1a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0", NULL, false);
