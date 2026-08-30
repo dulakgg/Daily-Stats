@@ -43,8 +43,8 @@ class $modify(GJGarageLayer) {
 
 			auto statMenu = this->getChildByID("capeling.garage-stats-menu/stats-menu");
 
-			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::create("star_small01_001.png"), dailyStars, 0.8f);
-			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::create("moon_small01_001.png"), dailyMoons, 0.8f);
+			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::createWithSpriteFrameName("star_small01_001.png"), dailyStars, 0.8f);
+			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::createWithSpriteFrameName("moon_small01_001.png"), dailyMoons, 0.8f);
 
 			if (statMenu) {
 				statMenu->addChild(myStatItem);
