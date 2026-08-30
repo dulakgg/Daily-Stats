@@ -8,7 +8,7 @@
   },
   "id": "dulak.daily_stats",
   "name": "Daily Stats",
-  "version": "v1.1.0",
+  "version": "v1.1.1",
   "developers": ["Dulak", "Lyfame"],
   "description": "Lets you see your daily stats count!",
   "tags": ["offline", "interface", "utility"],

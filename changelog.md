@@ -1,3 +1,7 @@
+# v1.1.1
+
+- Quick fix garage sprites not loading
+
 # v1.1.0
 
 - Updated to GD 2.2081
