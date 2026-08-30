@@ -13,3 +13,5 @@ There are three settings :
 # About me
 
 This mod was originally made by [Lyfame](https://github.com/Lyfame) and was later handed over to [dulakgg](https://github.com/dulakgg) and I will continue mod development.
+
+**Version:** v1.1.0

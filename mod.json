@@ -6,12 +6,21 @@
     "mac": "2.2081",
     "ios": "2.2081"
   },
-  "id": "dulakgg.daily_stats",
+  "id": "dulak.daily_stats",
   "name": "Daily Stats",
   "version": "v1.1.0",
-  "developers": ["Dulakgg", "Lyfame"],
+  "developers": ["Dulak", "Lyfame"],
   "description": "Lets you see your daily stats count!",
-  "links": { "source": "https://github.com/dulakgg/Daily-Stats" },
+  "tags": ["offline", "interface", "utility"],
+  "links": {
+    "source": "https://github.com/dulakgg/Daily-Stats",
+    "homepage": "https://www.dulakgg.me/",
+    "community": "https://discord.gg/CQFyRJDP5y"
+  },
+  "issues": {
+    "info": "Submit problems on repo page (github) or @dulakgg on Discord.",
+    "url": "https://github.com/dulakgg/Daily-Stats/issues"
+  },
   "settings": {
     "show-in-browser": {
       "type": "bool",
