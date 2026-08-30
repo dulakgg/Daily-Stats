@@ -20,16 +20,16 @@ std::string getCurrentDate() {
 	return oss.str();
 }
 
-void checkAndResetDailyStars() {
+void checkAndResetDailyStats() {
     std::string currentDate = getCurrentDate();
-    std::string lastDate = Mod::get()->getSavedValue<std::string>("lastDailyStarsReset");
+    std::string lastDate = Mod::get()->getSavedValue<std::string>("lastDailyStatsReset");
 
     if (lastDate != currentDate) {
         dailyStars = 0;
 		dailyMoons = 0;
         Mod::get()->setSavedValue<int>("dailyStars", 0);
 		Mod::get()->setSavedValue<int>("dailyMoons", 0);
-        Mod::get()->setSavedValue<std::string>("lastDailyStarsReset", currentDate);
+        Mod::get()->setSavedValue<std::string>("lastDailyStatsReset", currentDate);
     }
 }
 
@@ -39,7 +39,7 @@ class $modify(GJGarageLayer) {
 			return false;
 		
 		if (Mod::get()->getSettingValue<bool>("show-in-garage")) {
-			checkAndResetDailyStars();
+			checkAndResetDailyStats();
 
 			auto statMenu = this->getChildByID("capeling.garage-stats-menu/stats-menu");
 
@@ -64,7 +64,7 @@ class $modify(GJGarageLayer) {
 class $modify(EndLevelLayer) { 
 	void showLayer(bool toggle){
 		EndLevelLayer::showLayer(toggle);
-		checkAndResetDailyStars();
+		checkAndResetDailyStats();
 		dailyStars += m_stars;  
 		dailyMoons += m_moons;  
 		Mod::get()->setSavedValue<int>("dailyStars", dailyStars);
@@ -78,7 +78,7 @@ class $modify(LevelBrowserLayer) {
 		LevelBrowserLayer::onEnter();
 
 		if (Mod::get()->getSettingValue<bool>("show-in-browser")) {
-			checkAndResetDailyStars();
+			checkAndResetDailyStats();
 
 			auto menu = this->getChildByID("page-menu");
 			auto oldStat = menu->getChildByID("daily-stars");
@@ -107,7 +107,7 @@ class $modify(LevelBrowserLayer) {
 			menu->addChild(myStatItem);
 
 			if (menu->getChildByID("folder-button") && Loader::get()->isModLoaded("cvolton.betterinfo")) {
-				myStatItem2->setPosition({ 21, 90 });
+				myStatItem2->setPosition({ 21, 81 });
 			}
 			menu->addChild(myStatItem2);
 			

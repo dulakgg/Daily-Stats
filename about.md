@@ -1,6 +1,6 @@
-# Daily Stars
+# Daily Stats
 
-Simple mod that adds a new stat in the **garage** (Where you can change your icons) and also in the **level search page** showing the number of stars and moons you've collected **in a day**.
+Simple mod that adds a new stat in the **garage** (Where you can change your icons) and also in the **level search page** showing the number of stats (currently stars and moons, more coming soon) you've collected **in a day** (more time options coming soon).
 
 # Settings
 
@@ -12,4 +12,4 @@ There are three settings :
 
 # About me
 
-This mod was originally made by [Lyfame](https://github.com/Lyfame) and was later handed over to [dulakgg](https://github.com/dulakgg).
+This mod was originally made by [Lyfame](https://github.com/Lyfame) and was later handed over to [dulakgg](https://github.com/dulakgg) and I will continue mod development.

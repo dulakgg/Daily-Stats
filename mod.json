@@ -6,29 +6,29 @@
     "mac": "2.2081",
     "ios": "2.2081"
   },
-  "id": "dulakgg.daily_stars",
-  "name": "Daily Stars",
-  "version": "v1.0.6",
+  "id": "dulakgg.daily_stats",
+  "name": "Daily Stats",
+  "version": "v1.1.0",
   "developers": ["Dulakgg", "Lyfame"],
-  "description": "Lets you see your daily stars count!",
-  "links": { "source": "https://github.com/dulakgg/Daily-Stars" },
+  "description": "Lets you see your daily stats count!",
+  "links": { "source": "https://github.com/dulakgg/Daily-Stats" },
   "settings": {
     "show-in-browser": {
       "type": "bool",
       "name": "Show Stat In The Level Search Page",
-      "description": "Toggles on and off the Daily Stars stat in the level search page",
+      "description": "Toggles on and off the Daily Stats stat in the level search page",
       "default": true
     },
     "show-in-garage": {
       "type": "bool",
       "name": "Show Stat In The Garage",
-      "description": "Toggles on and off the Daily Stars stat in the Garage (Where you can change your icons)",
+      "description": "Toggles on and off the Daily Stats stat in the Garage (Where you can change your icons)",
       "default": true
     },
     "enable-particles": {
       "type": "bool",
       "name": "Enable the particles",
-      "description": "Enables the particles that are behind the daily stars",
+      "description": "Enables the particles that are behind the daily stat",
       "default": true
     }
   },
