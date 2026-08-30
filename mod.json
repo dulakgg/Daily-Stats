@@ -6,15 +6,12 @@
     "mac": "2.2081",
     "ios": "2.2081"
   },
-  "id": "lyfame.daily_stars",
+  "id": "dulakgg.daily_stars",
   "name": "Daily Stars",
   "version": "v1.0.6",
-  "developer": "Lyfame",
-  "description": "Lets you see your daily stars count !",
-  "links": { "source": "https://github.com/Lyfame/Daily-Stars" },
-  "resources": {
-    "sprites": ["resources/Daily_Stars.png"]
-  },
+  "developers": ["Dulakgg", "Lyfame"],
+  "description": "Lets you see your daily stars count!",
+  "links": { "source": "https://github.com/dulakgg/Daily-Stars" },
   "settings": {
     "show-in-browser": {
       "type": "bool",

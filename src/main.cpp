@@ -43,8 +43,8 @@ class $modify(GJGarageLayer) {
 
 			auto statMenu = this->getChildByID("capeling.garage-stats-menu/stats-menu");
 
-			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyStars, 0.8f);
-			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyMoons, 0.8f);
+			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::create("star_small01_001.png"), dailyStars, 0.8f);
+			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::create("moon_small01_001.png"), dailyMoons, 0.8f);
 
 			if (statMenu) {
 				statMenu->addChild(myStatItem);
@@ -92,11 +92,11 @@ class $modify(LevelBrowserLayer) {
 				oldStatMoon->removeFromParent();
 			}
 
-			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyStars, 0.9f);
-			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::create("Daily_Stars.png"_spr), dailyMoons, 0.9f);
+			auto myStatItem = StatsDisplayAPI::getNewItem("daily-stars"_spr, CCSprite::createWithSpriteFrameName("star_small01_001.png"), dailyStars, 1.2f);
+			auto myStatItem2 = StatsDisplayAPI::getNewItem("daily-moons"_spr, CCSprite::createWithSpriteFrameName("moon_small01_001.png"), dailyMoons, 1.2f);
 
-			myStatItem->setPosition({ -13, 97 });
-			myStatItem2->setPosition({ -13, 105 });
+			myStatItem->setPosition({ -13, 48 });
+			myStatItem2->setPosition({ -13, 67 });
 
 			myStatItem->setID("daily-stars");
 			myStatItem2->setID("daily-moons");
@@ -107,7 +107,7 @@ class $modify(LevelBrowserLayer) {
 			menu->addChild(myStatItem);
 
 			if (menu->getChildByID("folder-button") && Loader::get()->isModLoaded("cvolton.betterinfo")) {
-				myStatItem2->setPosition({ 21, 78 });
+				myStatItem2->setPosition({ 21, 90 });
 			}
 			menu->addChild(myStatItem2);
 			
@@ -116,6 +116,11 @@ class $modify(LevelBrowserLayer) {
 				starParticles->setZOrder(-1);
 				starParticles->setPosition({ 0, 0 });
 				myStatItem->addChild(starParticles);
+
+				CCParticleSystemQuad* moonParticles = GameToolbox::particleFromString("30a-1a2a0a8a180a180a0a0a25a50a0a5a-8a0a0a10a5a0a0a0a1a0a1a0a0.25a0a1a0.05a0a0a0a0a1a0a1a0a1a0a0a0a0a0a0.35a0a0a0a20a0a0a0a1a2a1a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0", NULL, false);
+				moonParticles->setZOrder(-1);
+				moonParticles->setPosition({ 0, 0 });
+				myStatItem2->addChild(moonParticles);
 			}
 
 		}
